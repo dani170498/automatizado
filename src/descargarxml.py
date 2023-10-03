@@ -35,7 +35,7 @@ class NistDataDownloader:
             "grep -v '<cpe-item name=\"' | "
             "grep -Eo 'name=.*' | "
             "grep -Eo '\".*\"' | "
-            "sed 's/\"//g' >> /home/daniel/apinist/archivos/cpe.txt"
+            "sed 's/\"//g' >> /home/kali/automatizado/archivos/cpe.txt"
         )
 
         print("Ejecutando proceso de filtrado y redirección...")
@@ -46,8 +46,8 @@ class NistDataDownloader:
 
 def descargar_descomprimir_filtrar():
     url = "https://nvd.nist.gov/feeds/xml/cpe/dictionary/official-cpe-dictionary_v2.3.xml.gz"
-    compressed_file = "/home/daniel/apinist/archivos/official-cpe-dictionary_v2.3.xml.gz"
-    decompressed_file = "/home/daniel/apinist/archivos/official-cpe-dictionary_v2.3.xml"
+    compressed_file = "/home/kali/automatizado/archivos/official-cpe-dictionary_v2.3.xml.gz"
+    decompressed_file = "/home/kali/automatizado/archivos/official-cpe-dictionary_v2.3.xml"
 
     downloader = NistDataDownloader(url, compressed_file, decompressed_file)
     downloader.descargar_archivo()
