@@ -1,4 +1,6 @@
+import os
 import json
+import datetime
 from reportlab.lib.pagesizes import letter, landscape
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, PageBreak, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
@@ -17,13 +19,21 @@ def cargar_resultados_desde_archivo(ruta_archivo):
         return "Error al analizar el JSON del archivo"
 
 # Ruta del archivo JSON
-ruta_archivo_json = "/home/kali/apinist/resultados.json"
+ruta_archivo_json = "/home/daniel/automatizado/resultados.json"
 
 # Cargar todos los resultados desde el archivo JSON
 resultados = cargar_resultados_desde_archivo(ruta_archivo_json)
 
-# Nombre del archivo PDF de salida
-nombre_archivo_pdf = "/home/kali/apinist/resultados/resultados_escaneo.pdf"
+# Obtener la fecha actual
+fecha_actual = datetime.datetime.now().strftime("%Y-%m-%d")
+
+# Nombre del archivo PDF de salida con la fecha actual
+nombre_archivo_pdf = f"/home/daniel/automatizado/reportes/resultados_escaneo_{fecha_actual}.pdf"
+
+# Crear la carpeta 'reportes' si no existe
+carpeta_reportes = os.path.dirname(nombre_archivo_pdf)
+if not os.path.exists(carpeta_reportes):
+    os.makedirs(carpeta_reportes)
 
 # Crear un documento PDF con tamaño de hoja en carta (8.5 x 11 pulgadas) y orientación horizontal
 doc = SimpleDocTemplate(nombre_archivo_pdf, pagesize=landscape(letter), leftMargin=20, rightMargin=20)
@@ -45,10 +55,10 @@ if isinstance(resultados, list) and len(resultados) > 0:
         data = [["Dato", "Valor"]]
         data.extend([
             ["Match", item.get("Match", "")],
-            ["Plugin", Paragraph(item.get("Plugin", ""),style_normal)],
+            ["Plugin", Paragraph(item.get("Plugin", ""), style_normal)],
             ["Version", item.get("Version", "")],
             ["CVE ID", item.get("CVE ID", "")],
-            ["CVE Descripcion",Paragraph(item.get("CVE Descripcion", ""), style_normal)],  # Dejar espacio vacío para agregar el párrafo después
+            ["CVE Descripcion", Paragraph(item.get("CVE Descripcion", ""), style_normal)],  # Dejar espacio vacío para agregar el párrafo después
             ["Base Severity", base_severity],  # Agregar el valor de Base Severity
         ])
 

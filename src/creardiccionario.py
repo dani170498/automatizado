@@ -43,9 +43,11 @@ class CpeParser:
                     plugins.append(plugin_info)
 
         return plugins
+        print ('****************************************************************')
+        print ('se ha creado el diccionario')
 
 def main():
-    archivo_entrada = "/home/kali/automatizado/archivos/cpe.txt"
+    archivo_entrada = "/home/daniel/automatizado/archivos/cpe.txt"
 
     parser = CpeParser(archivo_entrada)
     plugins = parser.parsear_cpe()
