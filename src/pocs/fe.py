@@ -36,7 +36,6 @@ class BuscadorCoincidencias:
                 nombre_elemento = elemento.get("nombre", "")
                 version_elemento = elemento.get("version", "")
                 url_elemento = elemento.get("url","")
-                tipo_elemento = elemento.get("tipo","")
                 # Variable para controlar si se encontró una coincidencia
                 encontrada = False
 
@@ -57,19 +56,18 @@ class BuscadorCoincidencias:
                             "nombre": nombre_elemento,
                             "version": version_elemento,
                             "cpename": elemento["cpename"],
-                            "tipo" : tipo_elemento,
                             "url":url_elemento
                         }
                         coincidencias.append(coincidencia)
 
                         # Imprimir cpename, nombre y versión de la coincidencia
-                        print(Fore.CYAN+f"Coincidencia encontrada :\n Nombre: {nombre_elemento} \n Versión: {version_elemento}\n cpename: {elemento['cpename']}\n En:{url_elemento}\n Tipo: {tipo_elemento} "+Fore.RESET)
+                        print(Fore.CYAN+f"Coincidencia encontrada - Nombre: {nombre_elemento}, Versión: {version_elemento}, cpename: {elemento['cpename']}"+Fore.RESET)
 
                         encontrada = True
                         break  # Salir del bucle cuando se encuentra una coincidencia
 
                 if not encontrada:
-                    print(Fore.MAGENTA+f"No se encontró coincidencia para :\n Nombre: {nombre_elemento}\n Versión: {version_elemento}\n En:{url_elemento}\n Tipo: {tipo_elemento}"+Fore.RESET)
+                    print(Fore.MAGENTA+f"No se encontró coincidencia para - Nombre: {nombre_elemento}, Versión: {version_elemento}"+Fore.RESET)
 
                 pbar.update(1)  # Actualizar la barra de progreso
 

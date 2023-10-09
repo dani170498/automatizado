@@ -44,7 +44,7 @@ def procesar_json(entrada, salida):
             'version': sitio.get('version', ""),
             'cpename': sitio.get('cpename', ""),
             'url': sitio['url'],
-            'tipo': sitio.get('tipo', "")
+            'themes': sitio.get('themes', "")
         }
 
         # Agregar el objeto JSON actual a la lista

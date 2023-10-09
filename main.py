@@ -1,8 +1,9 @@
 import json
+import os
 from src.descargarxml import descargar_descomprimir_filtrar
 from src.procesarjson import procesar_json
 from src.creardiccionario import CpeParser
-from src.coincidencias import main as coincidencias_main
+from src.coincidencias import BuscadorCoincidencias
 from src.evaluacion import main as evaluacion_main
 from src.resultados import cargar_resultados_desde_archivo
 from src.eliminar_archivos import eliminar_archivo
@@ -11,27 +12,36 @@ from src.eliminar_archivos import eliminar_archivo
 def main():
     # Ejecuta la función descargar_descomprimir_filtrar para obtener el archivo de entrada
     descargar_descomprimir_filtrar()
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
 
     #procesarjson
     # Rutas de entrada y salida JSON
-    entrada_json = '/home/daniel/automatizado/diccionario/lista.json'
-    salida_json = '/home/daniel/automatizado/diccionario/elemento.json'
+    entrada_json = "../diccionario/wordpress_plugin_theme.json"
+    salida_json = "../diccionario/elemento.json"
     procesar_json(entrada_json, salida_json)
+    #print("todo terminado, guardado en la ruta correspondienter")
 
     #creardiccionario
     # Ruta del archivo de entrada para parsear
-    archivo_entrada_cpe = "/home/daniel/automatizado/archivos/cpe.txt"
+    archivo_entrada="/archivos/cpe.txt"
+    archivo_salida = "/diccionario/plugins.json"
+    parser = CpeParser(archivo_entrada)
+    parser.main = (archivo_salida)
+    print(f'todo terminado, guardado en la ruta correspondiente: "{archivo_salida}"')
 
-    # Instancia la clase CpeParser y ejecuta el proceso de parseo
-    parser = CpeParser(archivo_entrada_cpe)
-    plugins = parser.parsear_cpe()
+    # buscar coincidencias entre diccionario y plugins extraidos
 
-    # Guarda la información en un archivo JSON
-    with open("/home/daniel/automatizado/diccionario/diccionario.json", "w") as archivo_salida_cpe:
-        json.dump(plugins, archivo_salida_cpe, indent=4)
+    elemento_path = 'diccionario/elemento.json'
+    plugins_path = 'diccionario/plugins.json'
+    coincidencias_path = 'diccionario/coincidencias.json'
+    elemento_path = os.path.abspath(elemento_path)
+    plugins_path = os.path.abspath(plugins_path)
+    coincidencias_path = os.path.abspath(coincidencias_path)
+    buscador = BuscadorCoincidencias(elemento_path, plugins_path, coincidencias_path)
+    buscador.buscar_coincidencias()
 
-    # Llama a la función main de coincidencias.py
-    coincidencias_main()
+
     #evaluacion con la api de NIST
     evaluacion_main()
     #generar pdf

@@ -25,7 +25,7 @@ ruta_archivo_json = "/home/daniel/automatizado/resultados.json"
 resultados = cargar_resultados_desde_archivo(ruta_archivo_json)
 
 # Obtener la fecha actual
-fecha_actual = datetime.datetime.now().strftime("%Y-%m-%d")
+fecha_actual = datetime.datetime.now().strftime("%Y-%m-%d-H%-M%-S%")
 
 # Nombre del archivo PDF de salida con la fecha actual
 nombre_archivo_pdf = f"/home/daniel/automatizado/reportes/resultados_escaneo_{fecha_actual}.pdf"
@@ -59,7 +59,7 @@ if isinstance(resultados, list) and len(resultados) > 0:
             ["Version", item.get("Version", "")],
             ["CVE ID", item.get("CVE ID", "")],
             ["CVE Descripcion", Paragraph(item.get("CVE Descripcion", ""), style_normal)],  # Dejar espacio vacío para agregar el párrafo después
-            ["Base Severity", base_severity],  # Agregar el valor de Base Severity
+            ["Severidad", base_severity],  # Agregar el valor de Base Severity
         ])
 
         # Definir el estilo de la tabla
