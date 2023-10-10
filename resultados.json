@@ -1,0 +1,730 @@
+[
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/embedpress/readme.txt",
+    "Plugin": "embedpress",
+    "Version": "3.7.0",
+    "CVE ID": "CVE-2023-3371",
+    "CVE Descripcion": "The User Registration plugin for WordPress is vulnerable to Sensitive Information Exposure due to hardcoded encryption key on the 'lock_content_form_handler' and 'display_password_form' function in versions up to, and including, 3.7.3. This makes it possible for unauthenticated attackers to decrypt and view the password protected content.",
+    "Metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE",
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH"
+          },
+          "exploitabilityScore": 3.9,
+          "impactScore": 3.6
+        },
+        {
+          "source": "security@wordfence.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE",
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 3.9,
+          "impactScore": 1.4
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:wpdeveloper:embedpress:3.7.0:*:*:*:*:wordpress:*:*"
+  },
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/embedpress/readme.txt",
+    "Plugin": "embedpress",
+    "Version": "3.7.0",
+    "CVE ID": "CVE-2023-4282",
+    "CVE Descripcion": "The EmbedPress plugin for WordPress is vulnerable to unauthorized loss of data due to a missing capability check on the 'admin_post_remove' and 'remove_private_data' functions in versions up to, and including, 3.8.2. This makes it possible for authenticated attackers with subscriber privileges or above, to delete plugin settings.",
+    "Metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "NONE",
+            "integrityImpact": "LOW",
+            "availabilityImpact": "NONE",
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 1.4
+        },
+        {
+          "source": "security@wordfence.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "NONE",
+            "integrityImpact": "LOW",
+            "availabilityImpact": "LOW",
+            "baseScore": 5.4,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 2.5
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:wpdeveloper:embedpress:3.7.0:*:*:*:*:wordpress:*:*"
+  },
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/embedpress/readme.txt",
+    "Plugin": "embedpress",
+    "Version": "3.7.0",
+    "CVE ID": "CVE-2023-4283",
+    "CVE Descripcion": "The EmbedPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'embedpress_calendar' shortcode in versions up to, and including, 3.8.2 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers with contributor-level and above permissions to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+    "Metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "REQUIRED",
+            "scope": "CHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "LOW",
+            "availabilityImpact": "NONE",
+            "baseScore": 5.4,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 2.3,
+          "impactScore": 2.7
+        },
+        {
+          "source": "security@wordfence.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "NONE",
+            "scope": "CHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "LOW",
+            "availabilityImpact": "NONE",
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 3.1,
+          "impactScore": 2.7
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:wpdeveloper:embedpress:3.7.0:*:*:*:*:wordpress:*:*"
+  },
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/robo-gallery/readme.txt",
+    "Plugin": "robo gallery",
+    "Version": "3.2.15",
+    "CVE ID": "CVE-2023-3499",
+    "CVE Descripcion": "The Photo Gallery, Images, Slider in Rbs Image Gallery WordPress plugin before 3.2.16 does not sanitise and escape some of its settings, which could allow high privilege users such as admin to perform Stored Cross-Site Scripting attacks even when the unfiltered_html capability is disallowed (for example in multisite setup)",
+    "Metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "REQUIRED",
+            "scope": "CHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "LOW",
+            "availabilityImpact": "NONE",
+            "baseScore": 4.8,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 1.7,
+          "impactScore": 2.7
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:robogallery:robo_gallery:3.2.15:*:*:*:*:wordpress:*:*"
+  },
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/ultimate-member/readme.txt",
+    "Plugin": "ultimate member",
+    "Version": "2.4.2",
+    "CVE ID": "CVE-2019-10271",
+    "CVE Descripcion": "An issue was discovered in the Ultimate Member plugin 2.39 for WordPress. It allows unauthorized profile and cover picture modification. It is possible to modify the profile and cover picture of any user once one is connected. One can also modify the profiles and cover pictures of privileged users. To perform such a modification, one first needs to (for example) intercept an upload-picture request and modify the user_id parameter.",
+    "Metrics": {
+      "cvssMetricV30": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.0",
+            "vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "NONE",
+            "integrityImpact": "LOW",
+            "availabilityImpact": "NONE",
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 1.4
+        }
+      ],
+      "cvssMetricV2": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "2.0",
+            "vectorString": "AV:N/AC:L/Au:S/C:N/I:P/A:N",
+            "accessVector": "NETWORK",
+            "accessComplexity": "LOW",
+            "authentication": "SINGLE",
+            "confidentialityImpact": "NONE",
+            "integrityImpact": "PARTIAL",
+            "availabilityImpact": "NONE",
+            "baseScore": 4.0
+          },
+          "baseSeverity": "MEDIUM",
+          "exploitabilityScore": 8.0,
+          "impactScore": 2.9,
+          "acInsufInfo": false,
+          "obtainAllPrivilege": false,
+          "obtainUserPrivilege": false,
+          "obtainOtherPrivilege": false,
+          "userInteractionRequired": false
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:ultimatemember:ultimate_member:2.4.2:*:*:*:*:wordpress:*:*"
+  },
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/ultimate-member/readme.txt",
+    "Plugin": "ultimate member",
+    "Version": "2.4.2",
+    "CVE ID": "CVE-2022-3966",
+    "CVE Descripcion": "A vulnerability, which was classified as critical, has been found in Ultimate Member Plugin up to 2.5.0. This issue affects the function load_template of the file includes/core/class-shortcodes.php of the component Template Handler. The manipulation of the argument tpl leads to pathname traversal. The attack may be initiated remotely. Upgrading to version 2.5.1 is able to address this issue. The name of the patch is e1bc94c1100f02a129721ba4be5fbc44c3d78ec4. It is recommended to upgrade the affected component. The identifier VDB-213545 was assigned to this vulnerability.",
+    "Metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE",
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH"
+          },
+          "exploitabilityScore": 3.9,
+          "impactScore": 3.6
+        },
+        {
+          "source": "cna@vuldb.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE",
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 1.4
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:ultimatemember:ultimate_member:2.4.2:*:*:*:*:wordpress:*:*"
+  },
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/ultimate-member/readme.txt",
+    "Plugin": "ultimate member",
+    "Version": "2.4.2",
+    "CVE ID": "CVE-2022-3361",
+    "CVE Descripcion": "The Ultimate Member plugin for WordPress is vulnerable to directory traversal in versions up to, and including 2.5.0 due to insufficient input validation on the 'template' attribute used in shortcodes. This makes it possible for attackers with administrative privileges to supply arbitrary paths using traversal (../../) to access and include files outside of the intended directory. If an attacker can successfully upload a php file then remote code execution via inclusion may also be possible. Note: for users with less than administrative capabilities, /wp-admin access needs to be enabled for that user in order for this to be exploitable by those users.",
+    "Metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE",
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 1.4
+        },
+        {
+          "source": "security@wordfence.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE",
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 1.4
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:ultimatemember:ultimate_member:2.4.2:*:*:*:*:wordpress:*:*"
+  },
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/ultimate-member/readme.txt",
+    "Plugin": "ultimate member",
+    "Version": "2.4.2",
+    "CVE ID": "CVE-2022-3383",
+    "CVE Descripcion": "The Ultimate Member plugin for WordPress is vulnerable to Remote Code Execution in versions up to, and including, 2.5.0 via the get_option_value_from_callback function that accepts user supplied input and passes it through call_user_func(). This makes it possible for authenticated attackers, with administrative capabilities, to execute code on the server.",
+    "Metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH",
+            "baseScore": 7.2,
+            "baseSeverity": "HIGH"
+          },
+          "exploitabilityScore": 1.2,
+          "impactScore": 5.9
+        },
+        {
+          "source": "security@wordfence.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH",
+            "baseScore": 7.2,
+            "baseSeverity": "HIGH"
+          },
+          "exploitabilityScore": 1.2,
+          "impactScore": 5.9
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:ultimatemember:ultimate_member:2.4.2:*:*:*:*:wordpress:*:*"
+  },
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/ultimate-member/readme.txt",
+    "Plugin": "ultimate member",
+    "Version": "2.4.2",
+    "CVE ID": "CVE-2022-3384",
+    "CVE Descripcion": "The Ultimate Member plugin for WordPress is vulnerable to Remote Code Execution in versions up to, and including, 2.5.0 via the populate_dropdown_options function that accepts user supplied input and passes it through call_user_func(). This is restricted to non-parameter PHP functions like phpinfo(); since user supplied parameters are not passed through the function. This makes it possible for authenticated attackers, with administrative privileges, to execute code on the server.",
+    "Metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH",
+            "baseScore": 7.2,
+            "baseSeverity": "HIGH"
+          },
+          "exploitabilityScore": 1.2,
+          "impactScore": 5.9
+        },
+        {
+          "source": "security@wordfence.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH",
+            "baseScore": 7.2,
+            "baseSeverity": "HIGH"
+          },
+          "exploitabilityScore": 1.2,
+          "impactScore": 5.9
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:ultimatemember:ultimate_member:2.4.2:*:*:*:*:wordpress:*:*"
+  },
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/ultimate-member/readme.txt",
+    "Plugin": "ultimate member",
+    "Version": "2.4.2",
+    "CVE ID": "CVE-2023-3460",
+    "CVE Descripcion": "The Ultimate Member WordPress plugin before 2.6.7 does not prevent visitors from creating user accounts with arbitrary capabilities, effectively allowing attackers to create administrator accounts at will. This is actively being exploited in the wild.",
+    "Metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH",
+            "baseScore": 9.8,
+            "baseSeverity": "CRITICAL"
+          },
+          "exploitabilityScore": 3.9,
+          "impactScore": 5.9
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:ultimatemember:ultimate_member:2.4.2:*:*:*:*:wordpress:*:*"
+  },
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/ultimate-member/readme.txt",
+    "Plugin": "ultimate member",
+    "Version": "2.4.2",
+    "CVE ID": "CVE-2023-31216",
+    "CVE Descripcion": "Cross-Site Request Forgery (CSRF) vulnerability in Ultimate Member plugin <=\u00a02.6.0 versions.",
+    "Metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "REQUIRED",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH",
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 5.9
+        },
+        {
+          "source": "audit@patchstack.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "REQUIRED",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "NONE",
+            "integrityImpact": "LOW",
+            "availabilityImpact": "NONE",
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 1.4
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:ultimatemember:ultimate_member:2.4.2:*:*:*:*:wordpress:*:*"
+  },
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/woocommerce/readme.txt",
+    "Plugin": "woocommerce",
+    "Version": "4.9.2",
+    "CVE ID": "CVE-2021-24323",
+    "CVE Descripcion": "When taxes are enabled, the \"Additional tax classes\" field was not properly sanitised or escaped before being output back in the admin dashboard, allowing high privilege users such as admin to use XSS payloads even when the unfiltered_html is disabled",
+    "Metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "REQUIRED",
+            "scope": "CHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "LOW",
+            "availabilityImpact": "NONE",
+            "baseScore": 4.8,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 1.7,
+          "impactScore": 2.7
+        }
+      ],
+      "cvssMetricV2": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "2.0",
+            "vectorString": "AV:N/AC:M/Au:S/C:N/I:P/A:N",
+            "accessVector": "NETWORK",
+            "accessComplexity": "MEDIUM",
+            "authentication": "SINGLE",
+            "confidentialityImpact": "NONE",
+            "integrityImpact": "PARTIAL",
+            "availabilityImpact": "NONE",
+            "baseScore": 3.5
+          },
+          "baseSeverity": "LOW",
+          "exploitabilityScore": 6.8,
+          "impactScore": 2.9,
+          "acInsufInfo": false,
+          "obtainAllPrivilege": false,
+          "obtainUserPrivilege": false,
+          "obtainOtherPrivilege": false,
+          "userInteractionRequired": true
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:woocommerce:woocommerce:4.9.2:*:*:*:*:wordpress:*:*"
+  },
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/woocommerce/readme.txt",
+    "Plugin": "woocommerce",
+    "Version": "4.9.2",
+    "CVE ID": "CVE-2021-32790",
+    "CVE Descripcion": "Woocommerce is an open source eCommerce plugin for WordPress. An SQL injection vulnerability impacts all WooCommerce sites running the WooCommerce plugin between version 3.3.0 and 3.3.6. Malicious actors (already) having admin access, or API keys to the WooCommerce site can exploit vulnerable endpoints of `/wp-json/wc/v3/webhooks`, `/wp-json/wc/v2/webhooks` and other webhook listing API. Read-only SQL queries can be executed using this exploit, while data will not be returned, by carefully crafting `search` parameter information can be disclosed using timing and related attacks. Version 3.3.6 is the earliest version of Woocommerce with a patch for this vulnerability. There are no known workarounds other than upgrading.",
+    "Metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE",
+            "baseScore": 4.9,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 1.2,
+          "impactScore": 3.6
+        },
+        {
+          "source": "security-advisories@github.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE",
+            "baseScore": 4.9,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 1.2,
+          "impactScore": 3.6
+        }
+      ],
+      "cvssMetricV2": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "2.0",
+            "vectorString": "AV:N/AC:L/Au:S/C:P/I:N/A:N",
+            "accessVector": "NETWORK",
+            "accessComplexity": "LOW",
+            "authentication": "SINGLE",
+            "confidentialityImpact": "PARTIAL",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE",
+            "baseScore": 4.0
+          },
+          "baseSeverity": "MEDIUM",
+          "exploitabilityScore": 8.0,
+          "impactScore": 2.9,
+          "acInsufInfo": false,
+          "obtainAllPrivilege": false,
+          "obtainUserPrivilege": false,
+          "obtainOtherPrivilege": false,
+          "userInteractionRequired": false
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:woocommerce:woocommerce:4.9.2:*:*:*:*:wordpress:*:*"
+  },
+  {
+    "Match": "https://mintrabajo.gob.bo/wp-content/plugins/woocommerce/readme.txt",
+    "Plugin": "woocommerce",
+    "Version": "4.9.2",
+    "CVE ID": "CVE-2022-2099",
+    "CVE Descripcion": "The WooCommerce WordPress plugin before 6.6.0 is vulnerable to stored HTML injection due to lack of escaping and sanitizing in the payment gateway titles",
+    "Metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "REQUIRED",
+            "scope": "CHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "LOW",
+            "availabilityImpact": "NONE",
+            "baseScore": 4.8,
+            "baseSeverity": "MEDIUM"
+          },
+          "exploitabilityScore": 1.7,
+          "impactScore": 2.7
+        }
+      ],
+      "cvssMetricV2": [
+        {
+          "source": "nvd@nist.gov",
+          "type": "Primary",
+          "cvssData": {
+            "version": "2.0",
+            "vectorString": "AV:N/AC:M/Au:S/C:N/I:P/A:N",
+            "accessVector": "NETWORK",
+            "accessComplexity": "MEDIUM",
+            "authentication": "SINGLE",
+            "confidentialityImpact": "NONE",
+            "integrityImpact": "PARTIAL",
+            "availabilityImpact": "NONE",
+            "baseScore": 3.5
+          },
+          "baseSeverity": "LOW",
+          "exploitabilityScore": 6.8,
+          "impactScore": 2.9,
+          "acInsufInfo": false,
+          "obtainAllPrivilege": false,
+          "obtainUserPrivilege": false,
+          "obtainOtherPrivilege": false,
+          "userInteractionRequired": true
+        }
+      ]
+    },
+    "prueba": "https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:a:woocommerce:woocommerce:4.9.2:*:*:*:*:wordpress:*:*"
+  }
+]

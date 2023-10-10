@@ -1,8 +1,12 @@
 import re
 import json
+import os
 
 class CpeParser:
-    def __init__(self, archivo_entrada):
+    def __init__(self, archivo_entrada=None):
+        if archivo_entrada is None:
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            archivo_entrada = os.path.join(script_dir, "../archivos/cpe.txt")
         self.archivo_entrada = archivo_entrada
 
     def reemplazar_barras_bajas(self, cadena):
@@ -43,19 +47,14 @@ class CpeParser:
                     plugins.append(plugin_info)
 
         return plugins
-        print ('****************************************************************')
-        print ('se ha creado el diccionario')
 
-def main():
-    archivo_entrada = "/home/daniel/automatizado/archivos/cpe.txt"
+    def main(self, archivo_salida="../diccionario/plugins.json"):
+        plugins = self.parsear_cpe()
 
-    parser = CpeParser(archivo_entrada)
-    plugins = parser.parsear_cpe()
-
-    # Guardar la información en un archivo JSON
-    with open("plugins.json", "w") as archivo_salida:
-        json.dump(plugins, archivo_salida, indent=4)
+        # Guardar la información en un archivo JSON
+        with open(archivo_salida, "w") as archivo_salida:
+            json.dump(plugins, archivo_salida, indent=4)
 
 if __name__ == "__main__":
-    main()
+    CpeParser().main()  # Ejecuta el programa utilizando el archivo de entrada predeterminado
 

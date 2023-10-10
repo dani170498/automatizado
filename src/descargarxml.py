@@ -35,7 +35,7 @@ class NistDataDownloader:
             "grep -v '<cpe-item name=\"' | "
             "grep -Eo 'name=.*' | "
             "grep -Eo '\".*\"' | "
-            "sed 's/\"//g' >> ../automatizado/archivos/cpe.txt"
+            "sed 's/\"//g' >> archivos/cpe.txt"
         )
 
         print("Ejecutando proceso de filtrado y redirección...")
@@ -49,8 +49,8 @@ def descargar_descomprimir_filtrar():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
     # Definir rutas relativas a partir de la ubicación del script
-    compressed_file = os.path.join(script_dir, "../archivos/official-cpe-dictionary_v2.3.xml.gz")
-    decompressed_file = os.path.join(script_dir, "../archivos/official-cpe-dictionary_v2.3.xml")
+    compressed_file = os.path.join(script_dir, "..", "archivos", "official-cpe-dictionary_v2.3.xml.gz")
+    decompressed_file = os.path.join(script_dir, "..", "archivos", "official-cpe-dictionary_v2.3.xml")
 
     url = "https://nvd.nist.gov/feeds/xml/cpe/dictionary/official-cpe-dictionary_v2.3.xml.gz"
 

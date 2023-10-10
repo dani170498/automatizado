@@ -1,35 +1,36 @@
 import json
 import os
+import datetime
 from src.descargarxml import descargar_descomprimir_filtrar
 from src.procesarjson import procesar_json
-from src.creardiccionario import CpeParser
+from src.cdiccionario import CpeParser
 from src.coincidencias import BuscadorCoincidencias
-from src.evaluacion import main as evaluacion_main
-from src.resultados import cargar_resultados_desde_archivo
-from src.eliminar_archivos import eliminar_archivo
-
+#from src.evaluacion import main as evaluacion_main
+from src.evaluacion import VulnerabilityScanner
+#from src.resultados import cargar_resultados_desde_archivo
+from src.resultados import GeneradorPDF
+#from src.eliminar_archivos import eliminar_archivo
 
 def main():
     # Ejecuta la función descargar_descomprimir_filtrar para obtener el archivo de entrada
     descargar_descomprimir_filtrar()
     script_dir = os.path.dirname(os.path.abspath(__file__))
-
-
     #procesarjson
     # Rutas de entrada y salida JSON
     entrada_json = "../diccionario/wordpress_plugin_theme.json"
     salida_json = "../diccionario/elemento.json"
     procesar_json(entrada_json, salida_json)
-    #print("todo terminado, guardado en la ruta correspondienter")
-
+    #print("todo terminado, guardado en la ruta correspondiente")
     #creardiccionario
     # Ruta del archivo de entrada para parsear
-    archivo_entrada="/archivos/cpe.txt"
-    archivo_salida = "/diccionario/plugins.json"
+    archivo_entrada= os.path.join(script_dir, "archivos/cpe.txt")
+    ruta_salida = os.path.join(script_dir, "diccionario/plugins.json")
     parser = CpeParser(archivo_entrada)
-    parser.main = (archivo_salida)
-    print(f'todo terminado, guardado en la ruta correspondiente: "{archivo_salida}"')
+    plugins = parser.parsear_cpe()
+    with open(ruta_salida, "w") as archivo_salida:
+        json.dump(plugins, archivo_salida, indent=4)
 
+    print(f'SE CREO EL DICCIONARIO EN: {ruta_salida}')
     # buscar coincidencias entre diccionario y plugins extraidos
 
     elemento_path = 'diccionario/elemento.json'
@@ -43,21 +44,31 @@ def main():
 
 
     #evaluacion con la api de NIST
-    evaluacion_main()
+    #evaluacion_main()
+    api_key = "5659d884-5496-4211-9d15-79135985b3a1"
+    json_path = 'diccionario/coincidencias.json'
+    output_path = 'resultados.json'
+    scanner = VulnerabilityScanner(api_key)
+    scanner.procesar_sitios(json_path, output_path)
+    
     #generar pdf
-    ruta_archivo = '/home/daniel/automatizado/resultados.json'
-    cargar_resultados_desde_archivo(ruta_archivo)
-    #eliminar archivos
-    rutas_a_eliminar = [
-        '/home/daniel/automatizado/diccionario/diccionario.json',
-        '/home/daniel/automatizado/diccionario/elemento.json',
-        '/home/daniel/automatizado/diccionario/evaluar.json',
-        '/home/daniel/automatizado/archivos/cpe.txt',
-        '/home/daniel/automatizado/resultados.json'
-    ]
 
-    for ruta in rutas_a_eliminar:
-        eliminar_archivo(ruta)
+    ruta_archivo_json = "resultados.json"
+    nombre_archivo_pdf = f"reportes/resultados_escaneo_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.pdf"
+    generador_pdf = GeneradorPDF(ruta_archivo_json)
+    generador_pdf.generar_pdf(nombre_archivo_pdf)
+    
+
+    #eliminar archivos
+#    rutas_a_eliminar = [
+#        '/home/daniel/automatizado/diccionario/diccionario.json',
+#        '/home/daniel/automatizado/diccionario/elemento.json',
+#        '/home/daniel/automatizado/diccionario/evaluar.json',
+#        '/home/daniel/automatizado/archivos/cpe.txt',
+#        '/home/daniel/automatizado/resultados.json'
+#    ]
+#    for ruta in rutas_a_eliminar:
+#        eliminar_archivo(ruta)
 
 if __name__ == "__main__":
     main()

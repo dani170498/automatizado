@@ -2,12 +2,10 @@ import os
 import json
 import datetime
 from reportlab.lib.pagesizes import letter, landscape
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, PageBreak, Paragraph, FrameBreak
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, PageBreak, Paragraph, Spacer, FrameBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
-from reportlab.lib.units import inch
-from reportlab.lib.pagesizes import letter, landscape
-from reportlab.platypus import SimpleDocTemplate, PageTemplate, Frame, Image
+from reportlab.platypus.frames import Frame
 
 class GeneradorPDF:
     def __init__(self, ruta_archivo_json):
@@ -26,7 +24,6 @@ class GeneradorPDF:
 
     def generar_pdf(self, nombre_archivo_pdf):
         fecha_actual = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
         doc = SimpleDocTemplate(
             nombre_archivo_pdf,
             pagesize=landscape(letter),
@@ -40,37 +37,13 @@ class GeneradorPDF:
         style_normal = styles['Normal']
         title = f"Resultados de evaluación - Fecha: {fecha_actual}"
         elements.append(Paragraph(title, custom_style))
-        elements.append(PageBreak())
-
-        # Agregar las imágenes al encabezado
-        header_left_image = Image('images/LogoAgetic.png', width=2*inch, height=1*inch)
-        header_left_image.hAlign = 'LEFT'
-        header_right_image = Image('images/logo_mpr.png', width=2*inch, height=1*inch)
-        header_right_image.hAlign = 'RIGHT'
-
-        page_template = PageTemplate(
-            id='custom',
-            frames=[
-                Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height - 2*inch, id='normal'),
-                Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height, id='header', showBoundary=1),
-            ]
-        )
-
-        def header(canvas, doc):
-            canvas.saveState()
-            header_left_image.drawOn(canvas, doc.leftMargin, doc.height - inch)
-            header_right_image.drawOn(canvas, doc.width - 2*inch, doc.height - inch)
-            canvas.restoreState()
-
-        page_template.beforeDraw = header
-        doc.addPageTemplates([page_template])
-
+        elements.append(Spacer(1, 20))
         if isinstance(self.resultados, list) and len(self.resultados) > 0:
             for item in self.resultados:
                 data = [["Dato", "Valor"]]
                 data.extend([
-                    ["URL", Paragraph(item.get("Match", ""), style_normal)],
-                    ["Recurso afectado", Paragraph(item.get("Plugin", ""), style_normal)],
+                    ["Match", Paragraph(item.get("Match", ""), style_normal)],
+                    ["Plugin", Paragraph(item.get("Plugin", ""), style_normal)],
                     ["Version", Paragraph(item.get("Version", ""), style_normal)],
                     ["CVE ID", Paragraph(item.get("CVE ID", ""), style_normal)],
                     ["CVE Descripcion", Paragraph(item.get("CVE Descripcion", ""), style_normal)],
@@ -84,9 +57,10 @@ class GeneradorPDF:
                     ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
                     ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
                     ('GRID', (0, 0), (-1, -1), 1, colors.black),
-                    ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-                ])  # Alineación superior (justificada)
+                    ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),  # Alineación vertical al centro
+                ])
 
+                elements.append(Spacer(1, 100))  # Espacio en blanco para centrar verticalmente
                 tabla = Table(data, colWidths=[150, None])
                 tabla.setStyle(table_style)
                 elements.append(tabla)
@@ -100,4 +74,3 @@ if __name__ == "__main__":
     nombre_archivo_pdf = f"reportes/resultados_escaneo_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.pdf"
     generador_pdf = GeneradorPDF(ruta_archivo_json)
     generador_pdf.generar_pdf(nombre_archivo_pdf)
-
